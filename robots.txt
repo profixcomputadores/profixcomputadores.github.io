@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://profix123ok.github.io/profixcomputadores/sitemap.xml
