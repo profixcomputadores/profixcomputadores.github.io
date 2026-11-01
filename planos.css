@@ -1,0 +1,16 @@
+/* Planos e Minha Área — gerado por testes/build_site_pro.py (mobile-first, 390px) */
+.pl-grade{align-items:stretch}.pl-card{position:relative;padding-top:28px}.pl-card.destaque{box-shadow:0 10px 30px #16a34a2e}
+.pl-selo{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--v);color:#fff;font-weight:800;font-size:13px;border-radius:999px;padding:5px 14px;white-space:nowrap}
+.pl-para{font-size:14px;margin:0 0 8px}.pl-ap{display:block;font-size:13px;font-weight:600;opacity:.75}
+.pl-tab-w{margin:26px 0 0;background:#fff;border:1px solid var(--b);border-radius:var(--raio);overflow:hidden}
+.pl-tab{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}.pl-tab caption{text-align:left;font-weight:800;padding:12px 12px 4px;font-size:15px}
+.pl-tab th,.pl-tab td{padding:9px 6px;border-top:1px solid var(--b);text-align:center;vertical-align:middle;word-break:break-word}.pl-tab tbody th{text-align:left;font-weight:600;width:30%}
+.pl-tab th,.pl-tab td{word-break:normal;overflow-wrap:break-word;hyphens:auto}.pl-tab thead th{font-size:12px}.pl-tab tbody th{font-size:12px}.pl-tab td{font-size:12px}.pl-tab .on{background:#16a34a12;font-weight:700}
+@media(min-width:720px){.pl-tab{font-size:15px}.pl-tab th,.pl-tab td{padding:12px 14px}}
+.pl-faq details{background:#fff;border:1px solid var(--b);border-radius:var(--raio);margin:0 0 10px;padding:0 16px}.pl-faq summary{cursor:pointer;font-weight:700;padding:14px 0;list-style-position:outside}.pl-faq p{margin:0 0 14px}
+.ma-abas{display:flex;gap:6px;margin:0 0 14px}.ma-abas button{flex:1;border:1px solid var(--b);background:#fff;border-radius:999px;padding:10px;font:inherit;font-weight:700;cursor:pointer}.ma-abas button[aria-selected="true"]{background:var(--v);color:#fff;border-color:var(--v)}
+.ma-form label{display:block;font-weight:600;margin:12px 0 4px}.ma-form input{width:100%;box-sizing:border-box}.ma-ok{color:var(--vd);font-weight:700}
+.ma-os{margin:0 0 14px}.ma-os h3{margin:0 0 4px;font-size:17px}.ma-st{display:inline-block;font-weight:700;font-size:13px;border-radius:999px;padding:3px 10px;background:#16a34a18;color:var(--vd)}.ma-st.alerta{background:#f59e0b22;color:#92400e}.ma-st.cinza{background:#e5e7eb;color:#374151}
+.ma-tl{list-style:none;padding:0;margin:10px 0;font-size:14px}.ma-tl li{padding:3px 0 3px 22px;position:relative}.ma-tl li:before{content:"";position:absolute;left:4px;top:9px;width:10px;height:10px;border-radius:50%;background:#d1d5db}
+.ma-tl li.feita:before{background:var(--v)}.ma-tl li.atual{font-weight:700}.ma-tl li.atual:before{background:#f59e0b;box-shadow:0 0 0 3px #f59e0b33}.ma-tl li.pulada{display:none}
+.ma-topo{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:0 0 14px}.ma-topo h2{margin:0}
