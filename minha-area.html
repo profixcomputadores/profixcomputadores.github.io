@@ -27,27 +27,29 @@
  </div>
 </header>
 <main id="conteudo">
-<section class="hero hero-int"><div class="w"><p class="kicker">Área do cliente</p><h1>Minha Área</h1><p class="lead">Acompanhe todos os seus atendimentos num lugar só, sem precisar procurar o link de cada OS.</p></div></section><section class="bloco"><div class="w estreito">
+<section class="hero hero-int"><div class="w"><p class="kicker">Área do cliente</p><h1>Minha Área</h1><p class="lead">Acompanhe seus atendimentos na ProFix num lugar só: status, orçamento e garantia de cada OS.</p></div></section><section class="bloco"><div class="w estreito">
 <div id="ma-login"><div class="ma-abas" role="tablist"><button type="button" role="tab" id="ma-aba-entrar" aria-controls="ma-p-entrar">Entrar</button><button type="button" role="tab" id="ma-aba-primeiro" aria-controls="ma-p-primeiro">Primeiro acesso</button></div>
 <div id="ma-p-entrar" role="tabpanel"><form class="card ma-form" id="ma-f-entrar" novalidate>
 <label for="ma-login-in">WhatsApp ou e-mail</label><input id="ma-login-in" autocomplete="username" inputmode="email" placeholder="(15) 99999-9999 ou seu@email.com" maxlength="120">
 <label for="ma-senha">Senha</label><input id="ma-senha" type="password" autocomplete="current-password" maxlength="128">
-<p class="erro" id="ma-erro-entrar" role="alert"></p><button class="btn" type="submit">Entrar</button></form>
-<p class="obs">Esqueceu a senha? <a href="https://wa.me/5515981128309?text=Oi%2C%20Pedro%21%20Esqueci%20a%20senha%20da%20Minha%20%C3%81rea%20da%20ProFix.%20Pode%20me%20mandar%20um%20c%C3%B3digo%20para%20criar%20uma%20nova%3F" target="_blank" rel="noopener">Fale com a ProFix no WhatsApp</a> e receba um código para criar uma senha nova.</p></div>
+<p class="erro" id="ma-erro-entrar" role="alert"></p><button class="btn" type="submit">Entrar</button>
+<p class="obs">🔒 Pedimos senha para que só você veja seus equipamentos e orçamentos. Usamos seus dados apenas para o seu atendimento, conforme a LGPD. Quer corrigir ou apagar seus dados? É só pedir pelo WhatsApp (15) 98112-8309.</p></form>
+<p class="obs">Esqueceu a senha? Sem problema: <a href="https://wa.me/5515981128309?text=Oi%2C%20Pedro%21%20Esqueci%20a%20senha%20da%20Minha%20%C3%81rea%20da%20ProFix.%20Pode%20me%20mandar%20um%20c%C3%B3digo%20para%20criar%20uma%20nova%3F" target="_blank" rel="noopener">fale com a ProFix no WhatsApp</a> e você recebe um código para criar uma senha nova. Por segurança, a senha antiga deixa de valer.</p>
+<p class="obs">Trocou de número ou e-mail? Fale com a ProFix: confirmamos que é você e geramos um código novo.</p></div>
 <div id="ma-p-primeiro" role="tabpanel" hidden><form class="card ma-form" id="ma-f-primeiro" novalidate>
-<p class="muted">Use o link de acompanhamento de uma OS que a ProFix mandou no seu WhatsApp, ou o código de acesso que o Pedro te passou.</p>
-<label for="ma-c-prova">Link da OS ou código de acesso</label><input id="ma-c-prova" autocomplete="off" placeholder="Cole o link ou digite o código (ex.: ABCD-2345)" maxlength="400">
-<label for="ma-c-login">Seu WhatsApp ou e-mail (o mesmo do cadastro)</label><input id="ma-c-login" autocomplete="username" inputmode="email" maxlength="120">
+<p class="muted">Para criar seu acesso, use o link de acompanhamento de uma OS que a ProFix mandou no seu WhatsApp, ou o código de acesso que o Pedro te passou. Isso garante que só o dono do equipamento crie a conta.</p>
+<label for="ma-c-prova">Link da OS ou código de acesso</label><input id="ma-c-prova" autocomplete="off" placeholder="Cole o link ou digite o código (ex.: ABCD-2345)" maxlength="400" aria-describedby="ma-dica-cod"><p class="obs" id="ma-dica-cod">O código vale por 72 horas e só pode ser usado uma vez.</p>
+<label for="ma-c-login">Seu WhatsApp ou e-mail (o mesmo que você passou para a ProFix)</label><input id="ma-c-login" autocomplete="username" inputmode="email" maxlength="120">
 <label for="ma-c-senha">Crie uma senha</label><input id="ma-c-senha" type="password" autocomplete="new-password" maxlength="128" aria-describedby="ma-dica">
-<p class="obs" id="ma-dica">De 8 a 128 caracteres, com letras e números.</p>
+<p class="obs" id="ma-dica">De 8 a 128 caracteres, com letras e números. Evite usar a mesma senha de outros sites.</p>
 <label for="ma-c-senha2">Repita a senha</label><input id="ma-c-senha2" type="password" autocomplete="new-password" maxlength="128">
 <p class="erro" id="ma-erro-primeiro" role="alert"></p><button class="btn" type="submit">Criar meu acesso</button></form>
-<p class="obs"><a href="https://wa.me/5515981128309?text=Oi%2C%20Pedro%21%20Quero%20acessar%20a%20Minha%20%C3%81rea%20da%20ProFix%2C%20mas%20n%C3%A3o%20tenho%20o%20link%20nem%20o%20c%C3%B3digo." target="_blank" rel="noopener">Não tenho link nem código</a></p></div>
+<p class="obs"><a href="https://wa.me/5515981128309?text=Oi%2C%20Pedro%21%20Quero%20acessar%20a%20Minha%20%C3%81rea%20da%20ProFix%2C%20mas%20n%C3%A3o%20tenho%20o%20link%20nem%20o%20c%C3%B3digo." target="_blank" rel="noopener">Não tenho link nem código: falar com a ProFix</a></p></div>
 <p class="obs">Prefere só consultar uma OS? <a href="acompanhar.html">Acompanhar pelo link ou código</a>.</p></div>
 <div id="ma-area" hidden><div class="ma-topo"><div><h2 id="ma-ola">Olá!</h2><p class="muted" id="ma-login-mask"></p></div><div class="acoes"><button class="btn sec peq" type="button" id="ma-atualizar">Atualizar</button><button class="btn sec peq" type="button" id="ma-sair">Sair</button></div></div>
 <div id="ma-lista" aria-live="polite"></div>
 <details class="card"><summary><b>Trocar minha senha</b></summary><form class="ma-form" id="ma-f-troca" novalidate><label for="ma-t-atual">Senha atual</label><input id="ma-t-atual" type="password" autocomplete="current-password" maxlength="128">
-<label for="ma-t-nova">Senha nova</label><input id="ma-t-nova" type="password" autocomplete="new-password" maxlength="128"><p class="erro" id="ma-erro-troca" role="alert"></p><p class="ma-ok" id="ma-troca-ok" hidden>Senha trocada.</p><button class="btn sec" type="submit">Salvar senha nova</button></form></details></div>
+<label for="ma-t-nova">Senha nova</label><input id="ma-t-nova" type="password" autocomplete="new-password" maxlength="128"><p class="erro" id="ma-erro-troca" role="alert"></p><p class="ma-ok" id="ma-troca-ok" hidden>Pronto! Sua senha foi trocada.</p><button class="btn sec" type="submit">Salvar senha nova</button></form></details></div>
 </div></section>
 </main>
 <footer class="rodape">
@@ -65,6 +67,6 @@
 </footer>
 <a class="wa-flut" id="wa-flutuante" href="https://wa.me/5515981128309?text=Oi%2C%20Pedro%21%20Vim%20pelo%20site%20da%20ProFix%20e%20gostaria%20de%20atendimento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></a>
 <script src="config.js?v=pro1"></script>
-<script src="site.js?v=pro2"></script><script src="minha-area.js?v=ma1"></script>
+<script src="site.js?v=pro2"></script><script src="minha-area.js?v=ma2"></script>
 </body>
 </html>
