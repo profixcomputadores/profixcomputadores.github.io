@@ -102,14 +102,14 @@
   var el = function (tag, cls, filhos) { var e = document.createElement(tag); if (cls) e.className = cls; (filhos || []).forEach(function (x) { if (x) e.appendChild(typeof x === 'string' ? document.createTextNode(x) : x); }); return e; };
   var post = function (acao) { return fetch(API, { method: 'POST', redirect: 'follow', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ acao: acao, args: {} }) }).then(function (r) { return r.json(); }); };
   var norm = function (s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim(); };
-  var ALIAS = { 'diagnostico': 'diagnostico tecnico', 'montagem': 'montagem de pc', 'pasta termica': 'pasta termica premium', 'suporte remoto': 'suporte remoto planos para empresas', 'planos b2b para empresas': 'suporte remoto planos para empresas' };
+  var ALIAS = { 'diagnostico': 'diagnostico tecnico', 'formatacao': 'formatacao sem backup', 'montagem': 'montagem de pc pecas do cliente', 'montagem de pc': 'montagem de pc pecas do cliente', 'troca de ssd': 'troca de ssd sem clonagem', 'pasta termica': 'troca de pasta termica', 'pasta termica premium': 'troca de pasta termica', 'planos b2b para empresas': 'planos para empresas' };
   var ul = $('tabela-lista');
   if (ul) post('catalogoPublico').then(function (j) {
     var l = (j && j.ok && j.servicos) || []; if (!l.length) return;
     var linhas = {}; ul.querySelectorAll('li').forEach(function (li) { linhas[norm(li.querySelector('span').textContent)] = li; });
     l.forEach(function (s) { if (!s || !s.nome || !(Number(s.valor) > 0)) return; var k = norm(s.nome), li = linhas[k] || linhas[ALIAS[k]];
       var pr = (s.aPartir ? 'a partir de ' : '') + brl(s.valor);
-      if (li) li.querySelector('b').textContent = pr; else { li = el('li', '', [el('span', '', [String(s.nome)]), el('b', '', [pr])]); ul.appendChild(li); linhas[k] = li; } });
+      if (li) { if (!/\/m[eê]s/.test(li.querySelector('b').textContent)) li.querySelector('b').textContent = pr; } else { if (/suporte remoto|pc novo de novo|premium/.test(k)) return; li = el('li', '', [el('span', '', [String(s.nome)]), el('b', '', [pr])]); ul.appendChild(li); linhas[k] = li; } });
     ul.setAttribute('data-fonte', 'crm');
   }).catch(function () {});
   var vl = $('vitrine-lista');
