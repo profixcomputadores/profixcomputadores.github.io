@@ -40,7 +40,7 @@
       ev.preventDefault(); var b = $('enviar'); if (b.disabled) return; var txt = b.textContent;
       ['nome', 'telefone', 'consentimento'].forEach(function (i) { $(i).removeAttribute('aria-invalid'); });
       var o = origemUrl(), c = { nome: $('nome').value.trim(), telefone: $('telefone').value.trim(), cidade: '', servico: [$('equipamento').value, $('servico').value.trim()].filter(String).join(' — ').slice(0, 300),
-        consentimento: $('consentimento').checked === true, site: $('pf_ref_z').value, tipo: 'retorno', origemPagina: o ? 'site-netlify|' + o : 'site-netlify' };
+        consentimento: $('consentimento').checked === true, site: $('pf_ref_z').value, tipo: 'retorno', origemPagina: o ? 'site|' + o : 'site' };
       var cm = $('conheceu').value; if (cm) c.comoConheceu = cm; var u = utms(); Object.keys(u).forEach(function (k) { c[k] = u[k]; });
       var erro = null, d = digitos(c.telefone);
       if (c.nome.length < 2 || c.nome.length > 80) erro = ['nome', 'Informe seu nome (2 a 80 letras).'];
@@ -64,7 +64,7 @@
       ev.preventDefault(); if (b.disabled) return; var txt = b.textContent;
       ['nome', 'telefone', 'consentimento'].forEach(function (n) { q(n).removeAttribute('aria-invalid'); });
       var o = origemUrl(), pg = fr.getAttribute('data-pagina') || pagina(), c = { nome: q('nome').value.trim(), telefone: q('telefone').value.trim(), cidade: '', servico: 'Pedido de retorno pelo site',
-        consentimento: q('consentimento').checked === true, site: q('site').value, tipo: 'retorno', origemPagina: ('site-netlify|' + pg + (o ? '|' + o : '')).slice(0, 60) };
+        consentimento: q('consentimento').checked === true, site: q('site').value, tipo: 'retorno', origemPagina: ('site|' + pg + (o ? '|' + o : '')).slice(0, 60) };
       var u = utms(); Object.keys(u).forEach(function (k) { c[k] = u[k]; });
       var erro = null, d = digitos(c.telefone);
       if (c.nome.length < 2 || c.nome.length > 80) erro = ['nome', 'Informe seu nome (2 a 80 letras).'];
