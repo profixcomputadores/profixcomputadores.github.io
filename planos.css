@@ -9,6 +9,7 @@
 .pl-inc{flex:1;margin-top:12px}.pl-inc li{font-size:14.5px;color:#0f1a16}
 .pl-cta{margin-top:8px;justify-content:center;text-align:center;background:#16a34a;color:#ffffff}
 .pl-abre{font-size:18px;font-weight:800;color:#0f1a16;margin:0 0 4px}
+.pl-selo{position:absolute;top:12px;right:12px;background:#22c55e;color:#0b1411;font-weight:800;font-size:12px;border-radius:999px;padding:4px 11px;z-index:2}.pl-card.pl-completo{border:2px solid #16a34a}.pl-dif{display:block;margin-top:8px;font-weight:800;color:#0f1a16;font-size:14px}.pl-topo .pl-nome{padding-right:110px}
 .pl-rodape{margin:18px 0 0;padding:14px 18px 14px 34px;background:#ffffff;border:1px solid #16a34a33;border-radius:var(--raio);color:#5b6b64;font-size:14px}.pl-rodape b{color:#0f1a16}
 .pl-tab-w{margin:26px 0 0;background:#fff;border:1px solid var(--b);border-radius:var(--raio);overflow:hidden}
 .pl-tab{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}.pl-tab caption{text-align:left;font-weight:800;padding:12px 12px 4px;font-size:15px}

@@ -9,7 +9,7 @@
     .then(function (r) { return r.json(); }).then(function (d) {
       if (!d || !d.ok || !Array.isArray(d.planos)) return;
       d.planos.forEach(function (p) {
-        var c = g.querySelector('[data-plano="' + String(p.chave).replace(/[^a-z]/g, '') + '"]'); if (!c || !(Number(p.preco) >= 215.7)) return;
+        var c = g.querySelector('[data-plano="' + String(p.chave).replace(/[^a-z]/g, '') + '"]'); if (!c || !(Number(p.preco) >= 143.8)) return;
         c.querySelector('.pl-preco').textContent = brl(p.preco);
         if (p.nome) c.querySelector('.pl-nome').textContent = p.nome;
         if (p.paraQuem && !proib.test(p.paraQuem)) c.querySelector('.pl-para').textContent = p.paraQuem;
