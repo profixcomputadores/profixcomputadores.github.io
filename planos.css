@@ -1,7 +1,15 @@
 /* Planos e Minha Área — gerado por testes/build_site_pro.py (mobile-first, 390px) */
-.pl-grade{align-items:stretch}.pl-card{position:relative;padding-top:28px}.pl-card.destaque{box-shadow:0 10px 30px #16a34a2e}
-.pl-selo{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--v);color:#fff;font-weight:800;font-size:13px;border-radius:999px;padding:5px 14px;white-space:nowrap}
-.pl-para{font-size:14px;margin:0 0 8px}.pl-ap{display:block;font-size:13px;font-weight:600;opacity:.75}
+.pl-grade{align-items:stretch;gap:20px}.pl-card{position:relative;padding:0 0 18px;display:flex;flex-direction:column;background:#ffffff;color:#0f1a16;border:1px solid #16a34a33;overflow:hidden}
+.pl-card>*:not(.pl-topo){margin-left:18px;margin-right:18px}
+.pl-topo{background:#0b1411;color:#ffffff;padding:20px 18px 16px;border-bottom:4px solid #16a34a}.pl-topo .pl-nome{color:#ffffff;margin:0 0 6px;font-size:23px}
+.pl-topo .pl-para{color:#ffffffcc;font-size:14px;margin:0;line-height:1.4}
+.pl-valor{margin-top:16px;color:#0f1a16}.pl-valor .pl-preco{font-size:38px;font-weight:900;letter-spacing:-.5px;color:#0f1a16}.pl-valor small{color:#5b6b64;font-weight:700}
+.pl-maq{margin-top:10px;background:#16a34a14;border-radius:12px;padding:10px 12px}.pl-qtd{display:block;color:#16a34a;font-size:18px;font-weight:900}
+.pl-cap{display:flex;gap:4px;margin-top:8px}.pl-cap i{flex:1;height:8px;border-radius:4px;background:#5b6b6433}.pl-cap i.on{background:#22c55e}
+.pl-inc{flex:1;margin-top:12px}.pl-inc li{font-size:14.5px;color:#0f1a16}
+.pl-cta{margin-top:8px;justify-content:center;text-align:center;background:#16a34a;color:#ffffff}
+.pl-abre{font-size:18px;font-weight:800;color:#0f1a16;margin:0 0 4px}
+.pl-rodape{margin:18px 0 0;padding:14px 18px 14px 34px;background:#ffffff;border:1px solid #16a34a33;border-radius:var(--raio);color:#5b6b64;font-size:14px}.pl-rodape b{color:#0f1a16}
 .pl-tab-w{margin:26px 0 0;background:#fff;border:1px solid var(--b);border-radius:var(--raio);overflow:hidden}
 .pl-tab{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}.pl-tab caption{text-align:left;font-weight:800;padding:12px 12px 4px;font-size:15px}
 .pl-tab th,.pl-tab td{padding:9px 6px;border-top:1px solid var(--b);text-align:center;vertical-align:middle;word-break:break-word}.pl-tab tbody th{text-align:left;font-weight:600;width:30%}

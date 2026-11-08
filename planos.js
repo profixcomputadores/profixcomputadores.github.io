@@ -16,7 +16,7 @@
         var inc = (p.inclui || []).filter(function (s) { return s && !proib.test(s); });
         if (inc.length) { var ul = c.querySelector('.pl-inc'); ul.textContent = ''; inc.forEach(function (s) { var li = document.createElement('li'); li.textContent = s; ul.appendChild(li); }); }
         document.querySelectorAll('.pl-tab td[data-p="' + p.chave + '"]').forEach(function (td) { var k = td.getAttribute('data-k');
-          if (k === 'preco') td.textContent = 'a partir de ' + brl(p.preco); else if (k === 'maq' && p.maquinas) td.textContent = 'até ' + p.maquinas; else if (k === 'vis' && p.visitas) td.textContent = p.visitas; else if (k === 'pri' && p.prioridade) td.textContent = p.prioridade; });
+          if (k === 'preco') td.textContent = brl(p.preco) + '/mês'; else if (k === 'maq' && p.maquinas) td.textContent = 'até ' + p.maquinas; else if (k === 'vis' && p.visitas) td.textContent = p.visitas; else if (k === 'pri' && p.prioridade) td.textContent = p.prioridade; });
         if (p.chave === 'essencial') { var e = document.querySelector('.pl-preco-ess'); if (e) e.textContent = brl(p.preco); }
       });
       d.planos.length && g.querySelectorAll('.pl-card').forEach(function (c) { if (!d.planos.some(function (p) { return p.chave === c.getAttribute('data-plano'); })) c.hidden = true; });
