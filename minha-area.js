@@ -25,6 +25,23 @@
     if (o.previsaoEntrega && !o.cancelado && o.status !== 'Entregue' && !/aguardando pe[çc]a/i.test(o.status || '')) c.appendChild(el('p', null, 'Previsão de entrega: ' + o.previsaoEntrega));
     var tl = el('ol', 'ma-tl'); (o.linhaDoTempo || []).forEach(function (e) { tl.appendChild(el('li', e.situacao, e.etapa + (e.data ? ' · ' + e.data : ''))); }); if (!o.cancelado) c.appendChild(tl);
     if (o.orcamento && o.orcamento.total != null) { var p = el('p'); p.appendChild(el('b', null, 'Orçamento: ' + brl(o.orcamento.total))); if (o.orcamento.validoAte) p.appendChild(document.createTextNode(' · válido até ' + o.orcamento.validoAte)); if (o.orcamento.aprovacao && o.orcamento.aprovacao !== 'Pendente') p.appendChild(document.createTextNode(' · ' + o.orcamento.aprovacao)); c.appendChild(p); }
+    var nOS = String(o.os || '').replace(/^OS[\s-]*/i, '');
+    var ag = o.agendamento, quando = ag && /^\d{4}-\d{2}-\d{2}$/.test(ag.data || '') && /^\d{2}:\d{2}$/.test(ag.hora || '') ? new Date(ag.data + 'T' + ag.hora + ':00-03:00') : null;
+    if (quando && quando.getTime() > Date.now() && !o.cancelado && !o.finalizada) { // agendamento futuro: Confirmar / Mudar horário (textos da seção 10)
+      var dBR = ag.dataBR || (ag.data.slice(8, 10) + '/' + ag.data.slice(5, 7) + '/' + ag.data.slice(0, 4)), bx = el('div', 'ma-ag');
+      bx.appendChild(el('p', 'ma-ag-t', '📅 Agendado: ' + (ag.dia ? ag.dia + ', ' : '') + dBR + ' às ' + ag.hora));
+      var lk = function (cls, txt, msg) { var a = el('a', cls, txt); a.href = WA + encodeURIComponent(msg); a.target = '_blank'; a.rel = 'noopener'; return a; }, ac = el('div', 'ma-ag-ac');
+      ac.appendChild(lk('btn peq ma-ag-ok', 'Confirmar agendamento', 'Oi, Pedro! Confirmo meu horário de *' + (ag.dia ? ag.dia + ', ' : '') + dBR + ', às ' + ag.hora + '* (OS ' + nOS + '). Até lá! 🙂'));
+      ac.appendChild(lk('btn sec peq ma-ag-mudar', 'Preciso mudar o horário', 'Oi, Pedro! Não vou conseguir no horário de ' + dBR + ' às ' + ag.hora + ' (OS ' + nOS + '). Podemos remarcar?'));
+      bx.appendChild(ac); c.appendChild(bx);
+    }
+    if (o.finalizada || (!o.cancelado && /^(entregue|finalizad)/i.test(o.status || ''))) { // pedido de avaliação em TODA OS entregue (sem filtro, regra do Google)
+      var av = el('div', 'ma-av'); av.appendChild(el('h4', null, 'Tudo certo com seu computador? 💚'));
+      av.appendChild(el('p', null, 'Sua avaliação no Google ajuda muito a ProFix, que é um negócio pequeno aqui de Sorocaba. Leva menos de 1 minuto.'));
+      var g = el('a', 'btn ma-av-google', 'Avaliar a ProFix no Google'); g.href = 'https://g.page/r/CZQuYc9gn5lJECE/review'; g.target = '_blank'; g.rel = 'noopener'; av.appendChild(g);
+      var w = el('a', 'ma-av-wa', 'Teve algum problema? Falar com o Pedro no WhatsApp'); w.href = WA + encodeURIComponent('Oi, Pedro! Sobre a OS ' + nOS + '...'); w.target = '_blank'; w.rel = 'noopener'; av.appendChild(w);
+      c.appendChild(av);
+    }
     if (o.link && /^https:\/\/script\.google\.com\//.test(o.link)) { var a = el('a', 'btn' + (o.aguardandoResposta ? '' : ' sec peq'), o.aguardandoResposta ? 'Ver e aprovar o orçamento' : (o.avaliacao && o.avaliacao.pode ? 'Ver detalhes e avaliar' : 'Ver detalhes')); a.href = o.link; a.target = '_blank'; a.rel = 'noopener'; c.appendChild(a); }
     return c;
   }
