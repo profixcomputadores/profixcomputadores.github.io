@@ -6,7 +6,7 @@
 .combo h2{margin:0 0 6px}.combo .btn{margin-top:10px}
 .pg fieldset{border:0;margin:0;padding:0;min-width:0}.pg legend{font-weight:800;font-size:18px;margin:6px 0 10px;padding:0}.pg legend:focus{outline:none}
 .pg-op{display:flex!important;align-items:center;gap:12px;min-height:52px;margin:0 0 8px!important;padding:10px 14px;border:1.5px solid var(--b);border-radius:12px;font-weight:600!important;cursor:pointer;background:#fff}
-.pg-op input{width:20px;height:20px;flex:none;accent-color:#16a34a;margin:0}.pg-op:has(input:checked){border-color:var(--v);background:#16a34a12}
+.pg-op input[type=radio]{width:20px!important;min-width:20px;height:20px;min-height:0!important;padding:0!important;flex:none;accent-color:#16a34a;margin:0}.pg-op span{flex:1;min-width:0;overflow-wrap:normal}.pg-op:has(input:checked){border-color:var(--v);background:#16a34a12}
 .pg textarea{width:100%;min-height:110px;padding:10px 12px;border:1.5px solid var(--b);border-radius:10px;font:inherit;resize:vertical}.pg textarea:focus{outline:2px solid var(--v);border-color:var(--v)}
 .vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .pg-topo{display:none}.pg.js .pg-topo{display:block;margin-bottom:8px;font-size:13px;font-weight:700;color:var(--g)}.pg-trilho{height:6px;background:var(--b);border-radius:6px;margin-top:6px;overflow:hidden}.pg-trilho i{display:block;height:100%;width:16.6%;background:var(--v2);transition:width .2s}
