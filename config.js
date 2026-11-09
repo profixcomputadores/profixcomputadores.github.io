@@ -1,5 +1,7 @@
 // Configuração do site público da ProFix. A URL da API é pública (não é segredo); sem token.
 window.PROFIX_SITE = { API_URL: 'https://script.google.com/macros/s/AKfycbzcEhxoCV88_Kp-EjIYaSOhbpH1yrqDWs4iOB-Sn9L88aikPKzn2ZoNaB0M-yCepSQ/exec',
+  // Desconto do Pix (%) de RESERVA: o valor que vale é o do CRM (o Pedro muda em Mais › Desconto no Pix). Usado só se a API não responder. Nunca escrever o % no HTML.
+  PIX_PCT_PADRAO: 5,
   // Fotos REAIS dos PCs montados pelo Pedro (pasta img/pcs/, ver img/pcs/LEIA-ME.md).
   // pc1 a pc3 aparecem nos cards (Home Office, Corporativa, Gamer); pc1 a pc6 na galeria.
   // Exemplo: pc1: { arquivo: 'pc1.webp', alt: 'PC Home Office montado pela ProFix' }

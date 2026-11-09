@@ -33,6 +33,9 @@
     var t = dig(d.telefone);
     if (d.nome.length < 2 || d.nome.length > 80) { er.textContent = 'Informe seu nome (2 a 80 letras).'; $('pg-nome').setAttribute('aria-invalid', 'true'); $('pg-nome').focus(); return; }
     if ((t.length !== 10 && t.length !== 11) || t.charAt(0) === '0') { er.textContent = 'Informe seu WhatsApp com DDD (10 ou 11 dígitos).'; $('pg-tel').setAttribute('aria-invalid', 'true'); $('pg-tel').focus(); return; }
+    // E-mail só vai ao CRM se a caixa "Aceito receber por e-mail…" estiver MARCADA; sem a marca, é descartado aqui (e no servidor).
+    var em = campo('email').toLowerCase(), aceita = !!($('pg-aceita') && $('pg-aceita').checked);
+    if (aceita && !/^[^\s@<>,;"]+@[^\s@<>,;"]+\.[^\s@<>,;"]{2,}$/.test(em)) { er.textContent = em ? 'Confira seu e-mail (ex.: voce@exemplo.com) ou desmarque a opção de receber avisos por e-mail.' : 'Informe seu e-mail ou desmarque a opção de receber avisos por e-mail.'; $('pg-email').setAttribute('aria-invalid', 'true'); $('pg-email').focus(); return; }
     var url = WA + encodeURIComponent(texto(d));
     // 1) WhatsApp aberto dentro do próprio toque (celular não bloqueia); se bloquear, fica o botão real logo abaixo.
     var w = null; try { w = window.open(url, '_blank'); if (w) w.opener = null; } catch (e) {}
@@ -42,6 +45,7 @@
     var o = String(ss('pf_origem')).replace(/[^a-z0-9-]/g, '').slice(0, 20);
     var c = { nome: d.nome, telefone: d.telefone, cidade: d.regiao === 'Outra cidade da região' ? '' : 'Sorocaba', servico: (d.servico + ' · ' + d.equipamento).slice(0, 120), consentimento: true,
       site: campo('site'), tipo: 'pedido', origemPagina: ('site|contato|pedido' + (o ? '|' + o : '')).slice(0, 60), tipoCliente: d.tipoCliente, equipamento: d.equipamento, regiao: d.regiao, detalhes: d.detalhes };
+    if (aceita && em) { c.email = em.slice(0, 120); c.aceitaEmail = true; }
     ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { var v = ss('pf_' + k); if (/^[A-Za-z0-9_.-]{1,60}$/.test(v)) c[k] = v; });
     fetch(API, { method: 'POST', redirect: 'follow', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ acao: 'cadastroPublico', args: c }) })
       .then(function (r) { return r.json(); }).then(function (j) { f.setAttribute('data-crm', j && j.ok ? 'ok' : 'erro'); }).catch(function () { f.setAttribute('data-crm', 'erro'); });

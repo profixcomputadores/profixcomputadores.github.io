@@ -8,11 +8,13 @@
   fetch(API, { method: 'POST', redirect: 'follow', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ acao: 'planosPublicos', args: {} }) })
     .then(function (r) { return r.json(); }).then(function (d) {
       if (!d || !d.ok || !Array.isArray(d.planos)) return;
+      var an = document.querySelector('.pl-anual-v'); if (an && Number(d.anualPct) > 0 && Number(d.anualPct) <= 30) an.textContent = String(d.anualPct).replace('.', ',') + '%';
       d.planos.forEach(function (p) {
         var c = g.querySelector('[data-plano="' + String(p.chave).replace(/[^a-z]/g, '') + '"]'); if (!c || p.versao !== '2026-11-09' || !(Number(p.preco) >= 359.5)) return;
         var mn = c.querySelector('.pl-preco-min');
         if (Number(p.porPc) > 0 && mn) { c.querySelector('.pl-preco').textContent = brl(p.porPc); mn.textContent = brl(p.preco); } else if (!(Number(p.porPc) > 0) && !mn) c.querySelector('.pl-preco').textContent = brl(p.preco); else return;
         if (p.maqTexto) c.querySelector('.pl-qtd').textContent = p.maqTexto;
+        var ex = c.querySelector('.pl-extra-v'); if (ex && Number(p.maqExtra) > 0) ex.textContent = brl(p.maqExtra);
         if (p.nome) c.querySelector('.pl-nome').textContent = p.nome;
         if (p.paraQuem && !proib.test(p.paraQuem)) c.querySelector('.pl-para').textContent = p.paraQuem;
         var inc = (p.inclui || []).filter(function (s) { return s && !proib.test(s); });

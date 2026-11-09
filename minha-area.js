@@ -29,11 +29,15 @@
     var ag = o.agendamento, quando = ag && /^\d{4}-\d{2}-\d{2}$/.test(ag.data || '') && /^\d{2}:\d{2}$/.test(ag.hora || '') ? new Date(ag.data + 'T' + ag.hora + ':00-03:00') : null;
     if (quando && quando.getTime() > Date.now() && !o.cancelado && !o.finalizada) { // agendamento futuro: Confirmar / Mudar horário (textos da seção 10)
       var dBR = ag.dataBR || (ag.data.slice(8, 10) + '/' + ag.data.slice(5, 7) + '/' + ag.data.slice(0, 4)), bx = el('div', 'ma-ag');
-      bx.appendChild(el('p', 'ma-ag-t', '📅 Agendado: ' + (ag.dia ? ag.dia + ', ' : '') + dBR + ' às ' + ag.hora));
+      bx.appendChild(el('p', 'ma-ag-t', 'Atendimento marcado')); // cartão "Seu agendamento" (textos-area-do-cliente.md 12.1)
+      bx.appendChild(el('p', 'ma-ag-q', (ag.dia ? ag.dia + ', ' : '') + dBR + ', às ' + ag.hora + (ag.tipo ? ' · ' + ag.tipo : '')));
       var lk = function (cls, txt, msg) { var a = el('a', cls, txt); a.href = WA + encodeURIComponent(msg); a.target = '_blank'; a.rel = 'noopener'; return a; }, ac = el('div', 'ma-ag-ac');
       ac.appendChild(lk('btn peq ma-ag-ok', 'Confirmar agendamento', 'Oi, Pedro! Confirmo meu horário de *' + (ag.dia ? ag.dia + ', ' : '') + dBR + ', às ' + ag.hora + '* (OS ' + nOS + '). Até lá! 🙂'));
       ac.appendChild(lk('btn sec peq ma-ag-mudar', 'Preciso mudar o horário', 'Oi, Pedro! Não vou conseguir no horário de ' + dBR + ' às ' + ag.hora + ' (OS ' + nOS + '). Podemos remarcar?'));
       bx.appendChild(ac); c.appendChild(bx);
+    } else if (!o.cancelado && !o.finalizada && /^pronto/i.test(o.status || '')) { // pronto e sem horário: 12.1 "Sem horário"
+      var sh = el('div', 'ma-ag ma-ag-sem'), sp = el('p', 'ma-ag-q', 'Ainda não tem horário marcado. Combine pelo '), wl = el('a', null, 'WhatsApp (15) 98112-8309');
+      wl.href = WA + encodeURIComponent('Oi, Pedro! Sobre a OS ' + nOS + '...'); wl.target = '_blank'; wl.rel = 'noopener'; sp.appendChild(wl); sp.appendChild(document.createTextNode('.')); sh.appendChild(sp); c.appendChild(sh);
     }
     if (o.finalizada || (!o.cancelado && /^(entregue|finalizad)/i.test(o.status || ''))) { // pedido de avaliação em TODA OS entregue (sem filtro, regra do Google)
       var av = el('div', 'ma-av'); av.appendChild(el('h4', null, 'Tudo certo com seu computador? 💚'));
